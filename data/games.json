@@ -1,0 +1,751 @@
+[
+  {
+    "slug": "fruit-ninja",
+    "title": "Fruit Ninja",
+    "name": "Fruit Ninja",
+    "thumb": "/imggames/fruit-ninja/fruit-ninja.jpg",
+    "tag": "New",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/fruit-ninja/index.html"
+  },
+  {
+    "slug": "uno",
+    "title": "UNO",
+    "name": "UNO",
+    "thumb": "/imggames/Uno/uno.jpg",
+    "tag": "New",
+    "category": ["Card", "Multiplayer"],
+    "iframe": "https://games-gules-nu.vercel.app/uno/index.html"
+  },
+  
+  {
+    "slug": "subway-runner",
+    "title": "Subway Runner",
+    "name": "Subway Runner",
+    "thumb": "/imggames/subway-runner/images.jpg",
+    "tag": "Top",
+    "category": ["Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/subway-runner/index.html"
+  },
+  {
+    "slug": "fruit-bucket",
+    "title": "Fruit Bucket",
+    "name": "Fruit Bucket",
+    "thumb": "/imggames/fruit-bucket/fruit-bucket.png",
+    "tag": "Top",
+    "category": ["Animals", "Nature"],
+    "iframe": "https://games-gules-nu.vercel.app/fruit-bucket/index.html"
+  },
+  {
+    "slug": "pet-party-columns",
+    "title": "Pet Party Columns",
+    "name": "Pet Party Columns",
+    "thumb": "/imggames/pet-party-columns/pet-party-columns.jpg",
+    "tag": "New",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/pet-party-columns/index.html"
+  },
+  {
+    "slug": "street-car-racing",
+    "title": "Street Car Racing",
+    "name": "Street Car Racing",
+    "thumb": "/imggames/street-car-racing/street-car-racing.png",
+    "tag": "New",
+    "category": ["Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/car-game/index.html"
+  },
+  {
+    "slug": "ludo-king",
+    "title": "Ludo King",
+    "name": "Ludo King",
+    "thumb": "/imggames/ludo-king/ludo-king.png",
+    "tag": "New",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/ludo-king/index.html"
+  },
+  {
+    "slug": "philosophers-merge",
+    "title": "Philosophers Merge",
+    "name": "Philosophers Merge",
+    "thumb": "/imggames/philosophers-merge/phil.jpg",
+    "tag": "Hot",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/philosophers-merge/index.html"
+  },
+  {
+    "slug": "liquid-sort",
+    "title": "Liquid Sort",
+    "name": "Liquid Sort",
+    "thumb": "/imggames/liquid-sort/liquid-sort.jpg",
+    "tag": "Updated",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/liquid-sort/index.html"
+  },
+  {
+    "slug": "street-skater",
+    "title": "Street Skater",
+    "name": "Street Skater",
+    "thumb": "/imggames/street-skater/street-skater.png",
+    "tag": "Trending",
+    "category": ["Sports"],
+    "iframe": "https://games-gules-nu.vercel.app/street-skater/index.html"
+  },
+  {
+    "slug": "hungry-snake-feed",
+    "title": "Hungry Snake Feed",
+    "name": "Hungry Snake Feed",
+    "thumb": "/imggames/hungry-snake-feed/hungry-snake-feed.jpg",
+    "tag": "Top",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/Hungry-snake-feed/index.html"
+  },
+  {
+    "slug": "pool-puzzle",
+    "title": "Pool Puzzle",
+    "name": "Pool Puzzle",
+    "thumb": "/imggames/pool-puzzle/Pool.jpg",
+    "tag": "New",
+    "category": ["Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/pool-puzzle/index.html"
+  },{
+    "slug": "wrench-puzzle",
+    "title": "Wrench Puzzle",
+    "name": "Wrench Puzzle",
+    "thumb": "/imggames/wrench-puzzle/wrench.jpg",
+    "tag": "Updated",
+    "category": ["Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/wrench-puzzle/index.html"
+  },
+  {
+    "slug": "brainrot-jet-ski",
+    "title": "Brainrot Jet Ski",
+    "name": "Brainrot Jet Ski",
+    "thumb": "/imggames/brainrot-jet-ski/brainrot-jet-ski.jpg",
+    "tag": "Updated",
+    "category": ["Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/brainrot-jet-ski/index.html"
+  },
+  {
+    "slug": "sushi-chef",
+    "title": "Sushi Chef",
+    "name": "Sushi Chef",
+    "thumb": "/imggames/sushi-chef/sushi-chef.jpg",
+    "tag": "Classic",
+    "category": ["Food"],
+    "iframe": "https://games-gules-nu.vercel.app/sushi-chef/index.html"
+  },
+  {
+    "slug": "food-match-game",
+    "title": "Food Match Game",
+    "name": "Food Match Game",
+    "thumb": "/imggames/food-match-game/food.jpg",
+    "tag": "Hot",
+    "category": ["Food"],
+    "iframe": "https://games-gules-nu.vercel.app/food-match-game/index.html"
+  },
+  {
+    "slug": "tanks-of-the-galaxy",
+    "title": "Tanks of the Galaxy",
+    "name": "Tanks of the Galaxy",
+    "thumb": "/imggames/tanks-of-the-galaxy/tanks.jpg",
+    "tag": "Classic",
+    "category": ["Shooter"],
+    "iframe": "https://games-gules-nu.vercel.app/tanks-of-the-galaxy/index.html"
+  },
+  {
+    "slug": "traffic-command",
+    "title": "Traffic Command",
+    "name": "Traffic Command",
+    "thumb": "/imggames/traffic-command/traffic-command.jpg",
+    "tag": "Hot",
+    "category": ["Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/traffic-command/index.html"
+  },
+  {
+    "slug": "inside-light",
+    "title": "Inside Light",
+    "name": "Inside Light",
+    "thumb": "/imggames/inside-light/Inside-Light-game.jpg",
+    "tag": "Updated",
+    "category": ["Adventure"],
+    "iframe": "https://games-gules-nu.vercel.app/inside-light/index.html"
+  },
+  {
+    "slug": "city-blocks",
+    "title": "City Blocks",
+    "name": "City Blocks",
+    "thumb": "/imggames/city-blocks/city-bloks.jpg",
+    "tag": "New",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/city-blocks/index.html"
+  },
+  {
+    "slug": "galaga",
+    "title": "Galaga",
+    "name": "Galaga",
+    "thumb": "/imggames/galaga/galaga.jpg",
+    "tag": "Hot",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/galaga/index.html"
+  },
+  {
+    "slug": "mega-man-1930",
+    "title": "Mega Man 1930",
+    "name": "Mega Man 1930",
+    "thumb": "/imggames/mega-man-1930/1930.jpg",
+    "tag": "Trending",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/mega-man-1930/index.html"
+  },
+  {
+    "slug": "random-basketball",
+    "title": "Random Basketball",
+    "name": "Random Basketball",
+    "thumb": "/imggames/random-basketball/random.png",
+    "tag": "Updated",
+    "category": ["Sports"],
+    "iframe": "https://games-gules-nu.vercel.app/random-basketball/index.html"
+  },
+  {
+    "slug": "twist-tactics",
+    "title": "Twist Tactics",
+    "name": "Twist Tactics",
+    "thumb": "/imggames/twist-tactics/twist-tactics.png",
+    "tag": "New",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/twist-tactics/index.html"
+  },
+  {
+    "slug": "box-match",
+    "title": "Box Match",
+    "name": "Box Match",
+    "thumb": "/imggames/box-match/box-match.jpg",
+    "tag": "Hot",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/box-match/index.html"
+  },
+  {
+    "slug": "brick-breaker",
+    "title": "Brick Breaker",
+    "name": "Brick Breaker",
+    "thumb": "/imggames/brick-breaker/brick-breaker.jpg",
+    "tag": "Trending",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/brick-breaker/index.html"
+  },
+  {
+    "slug": "mad-boy-adventures",
+    "title": "Mad Boy Adventures",
+    "name": "Mad Boy Adventures",
+    "thumb": "/imggames/mad-boy-adventures/Mad-Boy-Adventures.jpg",
+    "tag": "Classic",
+    "category": ["Adventure"],
+    "iframe": "https://games-gules-nu.vercel.app/mad-boy-adventures/index.html"
+  },
+  {
+    "slug": "throw-daggers",
+    "title": "Throw Daggers",
+    "name": "Throw Daggers",
+    "thumb": "/imggames/throw-daggers/throw-daggers.jpg",
+    "tag": "New",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/throw-daggers/index.html"
+  },
+  {
+    "slug": "diino-defense",
+    "title": "Diino Defense",
+    "name": "Diino Defense",
+    "thumb": "/imggames/diino-defense/diino-defense.jpg",
+    "tag": "Updated",
+    "category": ["Animals"],
+    "iframe": "https://games-gules-nu.vercel.app/diino-defense/index.html"
+  },
+  {
+    "slug": "robo-tracker",
+    "title": "Robo Tracker",
+    "name": "Robo Tracker",
+    "thumb": "/imggames/robo-tracker/robotracker.png",
+    "tag": "Trending",
+    "category": ["Adventure"],
+    "iframe": "https://games-gules-nu.vercel.app/robo-tracker/index.html"
+  },
+  {
+    "slug": "car-race-game",
+    "title": "Car Race Game",
+    "name": "Car Race Game",
+    "thumb": "/imggames/car-race-game/car-race game.jpg",
+    "tag": "Hot",
+    "category": ["Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/car-race-game/index.html"
+  },
+   {
+    "slug": "math-pop",
+    "title": "Math Pop",
+    "name": "Math Pop",
+    "thumb": "/imggames/math-pop/math.png",
+    "tag": "New",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/math-pop/index.html"
+  },
+  {
+    "slug": "builditekt",
+    "title": "Builditekt",
+    "name": "Builditekt",
+    "thumb": "/imggames/builditekt/buildi-tekt.jpg",
+    "tag": "Trending",
+    "category": ["Creative", "Simulation"],
+    "iframe": "https://games-gules-nu.vercel.app/builditekt/index.html"
+  },
+  {
+    "slug": "Shodow-boy-adventures",
+    "title": "Shodow Boy Adventures",
+    "name": "Shodow Boy Adventures",
+    "thumb": "/imggames/Shodow-boy-adventures/shadow.jpg",
+    "tag": "Classic",
+    "category": ["Adventure"],
+    "iframe": "https://games-gules-nu.vercel.app/Shodow-boy-adventures/index.html"
+  },
+  {
+    "slug": "robotic-snake-attack",
+    "title": "Robotic Snake Attack",
+    "name": "Robotic Snake Attack",
+    "thumb": "/imggames/robotic-snake-attack/snake-attack.png",
+    "tag": "Top",
+    "category": ["Animals", "Nature"],
+    "iframe": "https://games-gules-nu.vercel.app/robotic-snake-attack/index.html"
+  },
+  {
+    "slug": "archery",
+    "title": "Archery",
+    "name": "Archery",
+    "thumb": "/imggames/archery/Archery.jpg",
+    "tag": "New",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/archery/index.html"
+  },
+  {
+    "slug": "bomber-man",
+    "title": "BomberMan",
+    "name": "BomberMan",
+    "thumb": "/imggames/bomber-man/bom.jpg",
+    "tag": "Classic",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/bomber-man/index.html"
+  },
+  {
+    "slug": "brain-game",
+    "title": "Brain Game",
+    "name": "Brain Game",
+    "thumb": "/imggames/brain-game/Brain-game.png",
+    "tag": "Updated",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/brain-game/index.html"
+  },
+  {
+    "slug": "Braindom",
+    "title": "Braindom",
+    "name": "Braindom",
+    "thumb": "/imggames/Braindom/Braindom.png",
+    "tag": "Updated",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/Braindom/index.html"
+  },
+  {
+    "slug": "Braindom2",
+    "title": "Braindom 2",
+    "name": "Braindom 2",
+    "thumb": "/imggames/Braindom2/Braindom2.png",
+    "tag": "Updated",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/Braindom2/index.html"
+  },
+  {
+    "slug": "card-legends",
+    "title": "Card Legends",
+    "name": "Card Legends",
+    "thumb": "/imggames/card-legends/card-legends.png",
+    "tag": "New",
+    "category": ["Card", "Strategy"],
+    "iframe": "https://games-gules-nu.vercel.app/card-legends/index.html"
+  },
+  {
+    "slug": "color-water-sort",
+    "title": "Color Water Sort",
+    "name": "Color Water Sort",
+    "thumb": "/imggames/color-water-sort/color-water-sort.jpg",
+    "tag": "Trending",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/color-water-sort/index.html"
+  },
+  {
+    "slug": "cups-tower-builder",
+    "title": "Cups Tower Builder",
+    "name": "Cups Tower Builder",
+    "thumb": "/imggames/cups-tower-builder/cups-tower-builder.jpg",
+    "tag": "New",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/cups-tower-builder/index.html"
+  },
+  {
+    "slug": "dungeon-quest",
+    "title": "Dungeon Quest",
+    "name": "Dungeon Quest",
+    "thumb": "/imggames/dungeon-quest/dungeon-quest.png",
+    "tag": "Trending",
+    "category": ["Adventure", "Action"],
+    "iframe": "https://games-gules-nu.vercel.app/dungeon-quest/index.html"
+  },
+  {
+    "slug": "dunk-drawing",
+    "title": "Dunk Drawing",
+    "name": "Dunk Drawing",
+    "thumb": "/imggames/dunk-drawing/dunk-drawing.jpg",
+    "tag": "New",
+    "category": ["Sports", "Puzzle"],
+    "iframe": "https://games-gules-nu.vercel.app/dunk-drawing/index.html"
+  },
+  {
+    "slug": "fire-truck-driving",
+    "title": "Fire Truck Driving",
+    "name": "Fire Truck Driving",
+    "thumb": "/imggames/fire-truck-driving/fire-truck-driving.png",
+    "tag": "Updated",
+    "category": ["Simulation", "Racing"],
+    "iframe": "https://games-gules-nu.vercel.app/fire-truck-driving/index.html"
+  },
+  {
+    "slug": "foot-pong",
+    "title": "Foot Pong",
+    "name": "Foot Pong",
+    "thumb": "/imggames/foot-pong/foot-pong.png",
+    "tag": "Original",
+    "category": ["Sports", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/foot-pong/index.html"
+  },
+  {
+    "slug": "fruit-party",
+    "title": "Fruit Party",
+    "name": "Fruit Party",
+    "thumb": "/imggames/fruit-party/fruit-party.jpg",
+    "tag": "Hot",
+    "category": ["Puzzle", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/fruit-party/index.html"
+  },
+  {
+    "slug": "granny-hero",
+    "title": "Granny Hero",
+    "name": "Granny Hero",
+    "thumb": "/imggames/granny-hero/granny-hero.png",
+    "tag": "New",
+    "category": ["Adventure", "Action"],
+    "iframe": "https://games-gules-nu.vercel.app/granny-hero/index.html"
+  },
+  {
+    "slug": "gun-merge",
+    "title": "Gun Merge",
+    "name": "Gun Merge",
+    "thumb": "/imggames/gun-merge/gun-merge.jpg",
+    "tag": "Hot",
+    "category": ["Shooter", "Strategy"],
+    "iframe": "https://games-gules-nu.vercel.app/gun-merge/index.html"
+  },
+    {
+    "slug": "gun-merge",
+    "title": "Gun Merge",
+    "name": "Gun Merge",
+    "thumb": "/imggames/gun-merge/gun-merge.jpg",
+    "tag": "Hot",
+    "category": ["Shooter", "Strategy"],
+    "iframe": "https://games-gules-nu.vercel.app/gun-merge/index.html"
+  },
+  {
+    "slug": "hero-blaster",
+    "title": "Hero Blaster",
+    "name": "Hero Blaster",
+    "thumb": "/imggames/hero-blaster/hero-blaster.png",
+    "tag": "Trending",
+    "category": ["Action", "Shooter"],
+    "iframe": "https://games-gules-nu.vercel.app/hero-blaster/index.html"
+  },
+  {
+    "slug": "invace-spaders",
+    "title": "Invace Spaders",
+    "name": "Invace Spaders",
+    "thumb": "/imggames/invace-spaders/invace-spaders.jpg",
+    "tag": "Classic",
+    "category": ["Shooter", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/invace-spaders/index.html"
+  },
+  {
+    "slug": "kindergarten-teacher",
+    "title": "Kindergarten Teacher",
+    "name": "Kindergarten Teacher",
+    "thumb": "/imggames/kindergarten-teacher/kindergarten-teacher.jpg",
+    "tag": "New",
+    "category": ["Simulation", "Educational"],
+    "iframe": "https://games-gules-nu.vercel.app/kindergarten-teacher/index.html"
+  },
+  {
+    "slug": "math-tiles",
+    "title": "Math Tiles",
+    "name": "Math Tiles",
+    "thumb": "/imggames/math-tiles/math-tiles.jpg",
+    "tag": "Updated",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/math-tiles/index.html"
+  },
+  {
+    "slug": "math-up",
+    "title": "MathUp",
+    "name": "MathUp",
+    "thumb": "/imggames/math-up/math-up.jpg",
+    "tag": "Updated",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/math-up/index.html"
+  },
+  {
+    "slug": "memory-chess",
+    "title": "Memory Chess",
+    "name": "Memory Chess",
+    "thumb": "/imggames/memory-chess/memory-chess.png",
+    "tag": "Classic",
+    "category": ["Puzzle", "Board"],
+    "iframe": "https://games-gules-nu.vercel.app/memory-chess/index.html"
+  },
+  {
+    "slug": "neon-pong",
+    "title": "Neon Pong",
+    "name": "Neon Pong",
+    "thumb": "/imggames/neon-pong/neon-pong.jpg",
+    "tag": "Original",
+    "category": ["Arcade", "Multiplayer"],
+    "iframe": "https://games-gules-nu.vercel.app/neon-pong/index.html"
+  },
+  {
+    "slug": "neon-rider",
+    "title": "Neon Rider",
+    "name": "Neon Rider",
+    "thumb": "/imggames/neon-rider/neon-rider.png",
+    "tag": "Trending",
+    "category": ["Racing", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/neon-rider/index.html"
+  },
+  {
+    "slug": "pac-chef",
+    "title": "Pac Chef",
+    "name": "Pac Chef",
+    "thumb": "/imggames/pac-chef/pac-chef.jpg",
+    "tag": "New",
+    "category": ["Food", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/pac-chef/index.html"
+  },
+  {
+    "slug": "pac-rat",
+    "title": "Pac Rat",
+    "name": "Pac Rat",
+    "thumb": "/imggames/pac-rat/pac-rat.jpg",
+    "tag": "Hot",
+    "category": ["Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/pac-rat/index.html"
+  },
+  {
+    "slug": "pink-and-blue",
+    "title": "Pink and Blue",
+    "name": "Pink and Blue",
+    "thumb": "/imggames/pink-and-blue/pink-and-blue.png",
+    "tag": "Multiplayer",
+    "category": ["Arcade", "Puzzle"],
+    "iframe": "https://games-gules-nu.vercel.app/pink-and-blue/index.html"
+  },
+  {
+    "slug": "plug-heads",
+    "title": "Plug Heads",
+    "name": "Plug Heads",
+    "thumb": "/imggames/plug-heads/plug-heads.png",
+    "tag": "Original",
+    "category": ["Arcade", "Puzzle"],
+    "iframe": "https://games-gules-nu.vercel.app/plug-heads/index.html"
+  },
+  {
+    "slug": "retro-bowl",
+    "title": "Retro Bowl",
+    "name": "Retro Bowl",
+    "thumb": "/imggames/retro-bowl/retro-bowl.jpg",
+    "tag": "Trending",
+    "category": ["Sports"],
+    "iframe": "https://games-gules-nu.vercel.app/retro-bowl/index.html"
+  },
+  {
+    "slug": "rotated-cups",
+    "title": "Rotated Cups",
+    "name": "Rotated Cups",
+    "thumb": "/imggames/rotated-cups/rotated-cups.jpg",
+    "tag": "Updated",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/rotated-cups/index.html"
+  },
+  {
+    "slug": "snake-game",
+    "title": "Snake Game",
+    "name": "Snake Game",
+    "thumb": "/imggames/snake-game/snake-game.png",
+    "tag": "Classic",
+    "category": ["Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/snake-game/index.html"
+  },
+  {
+    "slug": "space-invace",
+    "title": "Space Invace",
+    "name": "Space Invace",
+    "thumb": "/imggames/space-invace/space-invace.jpg",
+    "tag": "Classic",
+    "category": ["Shooter", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/space-invace/index.html"
+  },
+  {
+    "slug": "spider-solitaire",
+    "title": "Spider Solitaire",
+    "name": "Spider Solitaire",
+    "thumb": "/imggames/spider-solitaire/spider-solitaire.jpg",
+    "tag": "Classic",
+    "category": ["Card", "Puzzle"],
+    "iframe": "https://games-gules-nu.vercel.app/spider-solitaire/index.html"
+  },
+  {
+    "slug": "Sticky",
+    "title": "Sticky",
+    "name": "Sticky",
+    "thumb": "/imggames/Sticky/sticky.png",
+    "tag": "Original",
+    "category": ["Arcade", "Puzzle"],
+    "iframe": "https://games-gules-nu.vercel.app/Sticky/index.html"
+  },
+  {
+    "slug": "super-agent",
+    "title": "Super Agent",
+    "name": "Super Agent",
+    "thumb": "/imggames/super-agent/super-agent.jpg",
+    "tag": "Original",
+    "category": ["Action", "Shooter"],
+    "iframe": "https://games-gules-nu.vercel.app/super-agent/index.html"
+  },
+  {
+    "slug": "super-pix",
+    "title": "Super Pix",
+    "name": "Super Pix",
+    "thumb": "/imggames/super-pix/super-pix.jpg",
+    "tag": "Original",
+    "category": ["Puzzle", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/super-pix/index.html"
+  },
+  {
+    "slug": "three-cups",
+    "title": "Three Cups",
+    "name": "Three Cups",
+    "thumb": "/imggames/three-cups/three-cups.jpg",
+    "tag": "Classic",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/three-cups/index.html"
+  },
+  {
+    "slug": "treasure-hunters",
+    "title": "Treasure Hunters",
+    "name": "Treasure Hunters",
+    "thumb": "/imggames/treasure-hunters/treasure-hunters.jpg",
+    "tag": "Adventure",
+    "category": ["Adventure", "Action"],
+    "iframe": "https://games-gules-nu.vercel.app/treasure-hunters/index.html"
+  },
+  {
+    "slug": "uno-monument-edition",
+    "title": "UNO Monument Edition",
+    "name": "UNO Monument Edition",
+    "thumb": "/imggames/uno-monument-edition/uno-monument.jpg",
+    "tag": "New",
+    "category": ["Card", "Multiplayer"],
+    "iframe": "https://games-gules-nu.vercel.app/uno-monument-edition/index.html"
+  },
+  {
+    "slug": "whatIs-the-password",
+    "title": "What Is The Password",
+    "name": "What Is The Password",
+    "thumb": "/imggames/whatIs-the-password/what-is-the-password.jpg",
+    "tag": "Puzzle",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/whatIs-the-password/index.html"
+  },
+  {
+    "slug": "sweety-cooking",
+    "title": "Sweety Cooking",
+    "name": "Sweety Cooking",
+    "thumb": "/imggames/sweety-cooking/sweety-cooking.jpg",
+    "tag": "Food",
+    "category": ["Food", "Puzzle"],
+    "iframe": "https://games-gules-nu.vercel.app/sweety-cooking/index.html"
+  },
+  {
+    "slug": "brawl-viking",
+    "title": "Brawl Viking",
+    "name": "Brawl Viking",
+    "thumb": "/imggames/brawl-viking/brawl-viking.jpg",
+    "tag": "Hot",
+    "category": ["Action", "Adventure"],
+    "iframe": "https://games-gules-nu.vercel.app/brawl-viking/index.html"
+  },
+  {
+    "slug": "bubble-stars",
+    "title": "Bubble Stars",
+    "name": "Bubble Stars",
+    "thumb": "/imggames/bubble-stars/bubble-stars.jpg",
+    "tag": "Classic",
+    "category": ["Puzzle", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/bubble-stars/index.html"
+  },
+  {
+    "slug": "card-attack",
+    "title": "Card Attack",
+    "name": "Card Attack",
+    "thumb": "/imggames/card-attack/card-attack.jpg",
+    "tag": "Card",
+    "category": ["Card", "Strategy"],
+    "iframe": "https://games-gules-nu.vercel.app/card-attack/index.html"
+  },
+  {
+    "slug": "zombie-attack",
+    "title": "Zombie Attack",
+    "name": "Zombie Attack",
+    "thumb": "/imggames/zombie-attack/zombie-attack.jpg",
+    "tag": "Hot",
+    "category": ["Shooter", "Action"],
+    "iframe": "https://games-gules-nu.vercel.app/zombie-attack/index.html"
+  },
+  {
+    "slug": "super-kid-adventure",
+    "title": "Super Kid Adventure",
+    "name": "Super Kid Adventure",
+    "thumb": "/imggames/super-kid-adventure/super-kid-adventure.jpg",
+    "tag": "Adventure",
+    "category": ["Adventure", "Platform"],
+    "iframe": "https://games-gules-nu.vercel.app/super-kid-adventure/index.html"
+  },
+  {
+    "slug": "find-the-differences",
+    "title": "Find The Differences",
+    "name": "Find The Differences",
+    "thumb": "/imggames/find-the-differences/find-the-differences.jpg",
+    "tag": "Puzzle",
+    "category": ["Puzzle", "Brain"],
+    "iframe": "https://games-gules-nu.vercel.app/find-the-differences/index.html"
+  },
+  {
+    "slug": "hat-hands",
+    "title": "Hat Hands",
+    "name": "Hat Hands",
+    "thumb": "/imggames/hat-hands/hat-hands.jpg",
+    "tag": "Puzzle",
+    "category": ["Puzzle", "Arcade", "Multiplayer"],
+    "iframe": "https://games-gules-nu.vercel.app/hat-hands/index.html"
+  }
+
+
+]

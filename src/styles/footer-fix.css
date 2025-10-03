@@ -1,0 +1,6 @@
+footer .social-icons button svg {
+  display: block;
+  fill: white !important;
+  width: 18px !important;
+  height: 18px !important;
+}

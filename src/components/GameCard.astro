@@ -1,0 +1,25 @@
+---
+const { game } = Astro.props;
+---
+
+{game ? (
+  <a href={`/game/${game.slug}`} class="hover:scale-105 transition shadow-lg rounded-lg overflow-hidden block w-full h-full">
+    <img src={game.thumb} alt={game.title} class="rounded-lg w-full h-full object-cover" />
+  </a>
+) : (
+  <div class="rounded-lg w-full h-full bg-white flex flex-col items-center justify-center p-4 gap-4">
+    <img src="/imggames/logo.png" alt="Logo" class="w-20 h-20 object-contain" />
+    <div class="flex gap-6">
+      <button aria-label="User" class="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A9 9 0 1118.88 6.196M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </button>
+      <button aria-label="Search" class="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+)}
