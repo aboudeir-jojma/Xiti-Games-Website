@@ -1,0 +1,77 @@
+---
+import games from '../../../data/games.json';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  return games.map(game => ({ params: { slug: game.slug } }));
+}
+
+const { slug } = Astro.params;
+const game = games.find(g => g.slug === slug);
+
+if (!game) {
+  throw new Error('Game not found');
+}
+
+const proxyBase = '/api/proxy?url=';
+
+const otherGames = games.filter(g => g.slug !== slug);
+
+export const prerender = false;
+---
+
+<script>
+  // Client-side script to detect iframe load failure and show fallback message
+  function onIframeError(iframeId: any) {
+    const iframe = document.getElementById(iframeId);
+    if (iframe) {
+      iframe.style.display = 'none';
+      const fallback = document.getElementById(iframeId + '-fallback');
+      if (fallback) fallback.style.display = 'block';
+    }
+  }
+</script>
+
+<MainLayout title={game.title} description={`Play ${game.title} online for free`}>
+  <main class="max-w-7xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">{game.title}</h1>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="md:col-span-3 relative">
+        <iframe
+          id="main-game-iframe"
+          src={`${proxyBase}${encodeURIComponent(game.iframe)}`}
+          class="w-full h-[600px] rounded-lg shadow-lg"
+          frameborder="0"
+          allowfullscreen
+          loading="lazy"
+          title={game.title}
+          onerror="onIframeError('main-game-iframe')"
+        ></iframe>
+        <div id="main-game-iframe-fallback" class="hidden p-4 bg-red-100 text-red-700 rounded mt-2">
+          Sorry, this game cannot be displayed due to browser restrictions.
+        </div>
+      </div>
+      <aside class="space-y-4 overflow-y-auto max-h-[600px]">
+        {otherGames.map((otherGame, index) => (
+          <>
+            <a href={`/game/${otherGame.slug}`} class="block rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+              <iframe
+                id={`other-game-iframe-${index}`}
+                src={`${proxyBase}${encodeURIComponent(otherGame.iframe)}`}
+                class="w-full h-32"
+                frameborder="0"
+                loading="lazy"
+                title={otherGame.title}
+                onerror={`onIframeError('other-game-iframe-${index}')`}
+              ></iframe>
+              <div class="p-2 text-center font-semibold">{otherGame.title}</div>
+            </a>
+            <div id={`other-game-iframe-${index}-fallback`} class="hidden p-2 bg-red-100 text-red-700 rounded mt-1 text-sm">
+              Cannot display this game preview.
+            </div>
+          </>
+        ))}
+      </aside>
+    </div>
+  </main>
+</MainLayout>

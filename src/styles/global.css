@@ -4,5 +4,8 @@
 @tailwind utilities;
 
 .bg-home {
-  background: linear-gradient(90deg, #66fcd2, #00d9ff);
+  background:url('/bg-diamante.svg') ,linear-gradient(90deg, #66fcd2, #00d9ff) ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
