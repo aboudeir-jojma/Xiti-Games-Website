@@ -1,77 +1,335 @@
 ---
 import games from '../../../data/games.json';
 import MainLayout from '../../layouts/MainLayout.astro';
+import GameDescription from '../../components/GameDescription.astro';
 
 export async function getStaticPaths() {
-  return games.map(game => ({ params: { slug: game.slug } }));
+  return games.map((game) => ({ params: { slug: game.slug } }));
 }
 
 const { slug } = Astro.params;
-const game = games.find(g => g.slug === slug);
+const game = games.find((g) => g.slug === slug);
 
 if (!game) {
   throw new Error('Game not found');
 }
 
-const proxyBase = '/api/proxy?url=';
-
-const otherGames = games.filter(g => g.slug !== slug);
-
+const otherGames = games.filter((g) => g.slug !== slug);
 export const prerender = false;
 ---
 
-<script>
-  // Client-side script to detect iframe load failure and show fallback message
-  function onIframeError(iframeId: any) {
-    const iframe = document.getElementById(iframeId);
-    if (iframe) {
-      iframe.style.display = 'none';
-      const fallback = document.getElementById(iframeId + '-fallback');
-      if (fallback) fallback.style.display = 'block';
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #7af7f4 0%, #b7ffff 100%);
+    min-height: 100vh;
+  }
+
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1600px;
+    margin: 60px auto;
+    padding: 20px;
+  }
+
+  .side-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 230px;
+  }
+
+  .side-column a {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .side-column a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+
+  .side-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .main-game {
+    flex: 1;
+    max-width: 900px;
+  }
+
+  .game-iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .related-games {
+    margin-top: 60px;
+  }
+
+  .related-games h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #0a1f44;
+  }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .game-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+
+  .game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+
+  .game-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  /* ✅ Section Catégories */
+  .categories-section {
+    background: transparent;
+    padding: 30px 0;
+    margin-top: 60px;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  .category-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  }
+
+  .category-card span {
+    font-weight: 500;
+    color: #0a1f44;
+  }
+
+  @media (max-width: 1024px) {
+    .page-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .side-column {
+      display: none;
     }
   }
-</script>
+
+ /* ✅ Rendre la section Catégories pleine largeur (comme le fond principal) */
+/* ✅ Section Catégories pleine largeur */
+.categories-section-full {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw; /* Prend presque toute la largeur de la fenêtre */
+
+  padding: 60px 100px;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* ✅ Grille 8 par 8 */
+.categories-section-full .categories-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 colonnes fixes */
+  gap: 20px;
+  max-width: 1800px; /* optionnel pour centrer */
+  margin: 0 auto;
+}
+
+/* ✅ Cartes */
+.categories-section-full .category-card {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.categories-section-full .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* ✅ Carte mise en avant */
+.categories-section-full .highlight {
+  background: #ffe55c;
+  color: black;
+  font-weight: bold;
+}
+
+/* ✅ Responsive pour petits écrans */
+@media (max-width: 1400px) {
+  .categories-section-full .categories-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .categories-section-full .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-section-full .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* ✅ Description pleine largeur comme la section catégories */
+.description-section-full {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw; /* même largeur que la section précédente */
+  max-width: 1800px;
+  padding: 40px 100px 60px;
+  margin-top: 0;
+  background: transparent;
+  color: #0a1f44;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.description-section-full h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0a1f44;
+}
+
+.description-section-full p {
+  margin-bottom: 16px;
+  color: #333;
+}
+
+
+</style>
 
 <MainLayout title={game.title} description={`Play ${game.title} online for free`}>
-  <main class="max-w-7xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">{game.title}</h1>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div class="md:col-span-3 relative">
-        <iframe
-          id="main-game-iframe"
-          src={`${proxyBase}${encodeURIComponent(game.iframe)}`}
-          class="w-full h-[600px] rounded-lg shadow-lg"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-          title={game.title}
-          onerror="onIframeError('main-game-iframe')"
-        ></iframe>
-        <div id="main-game-iframe-fallback" class="hidden p-4 bg-red-100 text-red-700 rounded mt-2">
-          Sorry, this game cannot be displayed due to browser restrictions.
-        </div>
-      </div>
-      <aside class="space-y-4 overflow-y-auto max-h-[600px]">
-        {otherGames.map((otherGame, index) => (
-          <>
-            <a href={`/game/${otherGame.slug}`} class="block rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-              <iframe
-                id={`other-game-iframe-${index}`}
-                src={`${proxyBase}${encodeURIComponent(otherGame.iframe)}`}
-                class="w-full h-32"
-                frameborder="0"
-                loading="lazy"
-                title={otherGame.title}
-                onerror={`onIframeError('other-game-iframe-${index}')`}
-              ></iframe>
-              <div class="p-2 text-center font-semibold">{otherGame.title}</div>
+  <main class="page-container">
+    <!-- ✅ Liste de jeux à gauche -->
+    <aside class="side-column">
+      {otherGames.slice(0, 16).map((g) => (
+        <a href={`/game/${g.slug}`} title={g.title}>
+          <img src={g.thumb} alt={g.title} loading="lazy" />
+        </a>
+      ))}
+    </aside>
+
+    <!-- ✅ Zone principale -->
+    <section class="main-game">
+      <iframe
+        src={game.iframe}
+        class="game-iframe"
+        allowfullscreen
+        loading="lazy"
+        title={game.title}
+      ></iframe>
+
+      <!-- ✅ Section Other Games -->
+      <section class="related-games">
+
+        <div class="games-grid">
+          {otherGames.slice(0, 10).map((g) => (
+            <a href={`/game/${g.slug}`} class="game-card">
+              <img src={g.thumb} alt={g.title} loading="lazy" />
             </a>
-            <div id={`other-game-iframe-${index}-fallback`} class="hidden p-2 bg-red-100 text-red-700 rounded mt-1 text-sm">
-              Cannot display this game preview.
-            </div>
-          </>
-        ))}
-      </aside>
-    </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ✅ Nouvelle section Catégories (large full width) -->
+<section class="categories-section-full">
+
+  <div class="categories-grid">
+    <div class="category-card highlight"><span class="text-6xl">🎮</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🧠</span><span>Brainrot Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">👾</span><span>Obby Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">⚽</span><span>Soccer Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">📱</span><span>Mobile Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🤝</span><span>Co-op Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🗺️</span><span>Adventure Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🕹️</span><span>Platform Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🔥</span><span>Action Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🏎️</span><span>Car Racing Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🕹️</span><span>Arcade Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">3️⃣</span><span>3D Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🎯</span><span>Skill Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">👦</span><span>Games for Boys</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🌐</span><span>.io Games</span></div>
+    <div class="category-card"><span class="text-4xl mb-2">🏆</span><span>Popular Games</span></div>
+    
+  </div>
+</section>
+
+
+
+
+<section class="description-section-full">
+  <GameDescription slug={slug} />
+</section>
+
+    </section>
+
+    <!-- ✅ Liste de jeux à droite -->
+    <aside class="side-column">
+      {otherGames.slice(12, 28).map((g)=> (
+        <a href={`/game/${g.slug}`} title={g.title}>
+          <img src={g.thumb} alt={g.title} loading="lazy" />
+        </a>
+      ))}
+    </aside>
   </main>
 </MainLayout>

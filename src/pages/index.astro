@@ -11,15 +11,20 @@ import games from "../../data/games.json";
 
       <div class="grid grid-flow-dense grid-cols-6 auto-rows-[150px] gap-4">
       {games.map((game, index) => {
-        // Generate random col and row spans between 1 and 2
-        const colSpan = Math.floor(Math.random() * 2) + 1;
-        const rowSpan = Math.floor(Math.random() * 2) + 1;
+        // Use fixed col and row spans of 1 to preserve order and layout consistency
+        const colSpanNum = 1;
+        const rowSpanNum = 1;
+
+        // Map numbers to Tailwind CSS classes
+        const colSpanClass = `col-span-${colSpanNum}`;
+        const rowSpanClass = `row-span-${rowSpanNum}`;
+
         // For the first card, pass null for game to render empty card
         if (index === 0) {
-          return <GameCard game={null} colSpan={colSpan} rowSpan={rowSpan} overrideImage={null} />;
+          return <GameCard game={null} colSpanClass={colSpanClass} rowSpanClass={rowSpanClass} overrideImage={null} />;
         }
         const overrideImage = null;
-        return <GameCard game={game} colSpan={colSpan} rowSpan={rowSpan} overrideImage={overrideImage} />;
+        return <GameCard game={game} colSpanClass={colSpanClass} rowSpanClass={rowSpanClass} overrideImage={overrideImage} />;
       })}
     </div>
 

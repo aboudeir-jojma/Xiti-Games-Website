@@ -1,0 +1,39 @@
+---
+const { slug } = Astro.props;
+---
+
+<div id="game-description" data-slug={slug} class="mt-6 p-4 bg-white rounded shadow w-full"></div>
+
+<script>
+  async function loadDescription() {
+    const descriptionContainer = document.getElementById('game-description');
+    if (!descriptionContainer) return;
+    let slug = descriptionContainer.dataset?.slug || '';
+    const userLang = navigator.language || 'en';
+    const langCode = userLang.split('-')[0]; // e.g. 'en' from 'en-US'
+    const descriptionUrls = [
+      `/imggames/${slug}/description.${langCode}.html`,
+      `/imggames/${slug}/description.en.html`,
+      `/imggames/${slug}/description.html`
+    ];
+    console.log('Trying to fetch description from URLs:', descriptionUrls);
+    let descriptionHtml = '';
+    for (const url of descriptionUrls) {
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          descriptionHtml = await response.text();
+          break;
+        }
+      } catch (e) {
+        console.warn('Failed to fetch description from', url, e);
+      }
+    }
+    if (descriptionHtml) {
+      descriptionContainer.innerHTML = descriptionHtml;
+    } else {
+      descriptionContainer.innerHTML = '<p>Description not available.</p>';
+    }
+  }
+  window.addEventListener('load', loadDescription);
+</script>

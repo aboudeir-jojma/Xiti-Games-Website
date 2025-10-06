@@ -1,0 +1,20 @@
+---
+const { games, colSpanClass, rowSpanClass } = Astro.props;
+---
+
+<div class={`multi-game-card ${colSpanClass} ${rowSpanClass} grid grid-cols-1 gap-2 p-2 bg-white rounded-lg shadow-md`}>
+  {games.map((game: any) => (
+    <div class="single-game flex items-center space-x-2 p-1 border-b last:border-b-0 cursor-pointer hover:bg-gray-100">
+      <img src={game.image} alt={game.name} class="w-12 h-12 object-cover rounded" />
+      <div class="game-info">
+        <h3 class="text-sm font-semibold">{game.name}</h3>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .multi-game-card {
+    cursor: pointer;
+  }
+</style>

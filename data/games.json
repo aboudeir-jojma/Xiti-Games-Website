@@ -7,15 +7,7 @@
     "category": ["Action", "Arcade"],
     "iframe": "https://games-gules-nu.vercel.app/fruit-ninja/index.html"
   },
-  {
-    "slug": "fruit-ninja",
-    "title": "Fruit Ninja",
-    "name": "Fruit Ninja",
-    "thumb": "/imggames/fruit-ninja/fruit-ninja.jpg",
-    "tag": "New",
-    "category": ["Action", "Arcade"],
-    "iframe": "https://games-gules-nu.vercel.app/fruit-ninja/index.html"
-  },
+ 
   {
     "slug": "uno",
     "title": "UNO",
@@ -23,7 +15,7 @@
     "thumb": "/imggames/Uno/uno.jpg",
     "tag": "New",
     "category": ["Card", "Multiplayer"],
-    "iframe": "https://games-gules-nu.vercel.app/uno/index.html"
+    "iframe": "https://games-gules-nu.vercel.app/Uno/index.html"
   },
   
   {
@@ -754,6 +746,8 @@
     "category": ["Puzzle", "Arcade", "Multiplayer"],
     "iframe": "https://games-gules-nu.vercel.app/hat-hands/index.html"
   }
+
+
 
 
 ]
