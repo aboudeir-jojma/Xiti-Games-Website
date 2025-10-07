@@ -358,6 +358,14 @@
     "tag": "Updated",
     "category": ["Puzzle", "Brain"],
     "iframe": "https://games-gules-nu.vercel.app/Braindom2/index.html"
+  },{
+    "slug": "fruit-ninja",
+    "title": "Fruit Ninja",
+    "name": "Fruit Ninja",
+    "thumb": "/imggames/fruit-ninja/fruit-ninja.jpg",
+    "tag": "New",
+    "category": ["Action", "Arcade"],
+    "iframe": "https://games-gules-nu.vercel.app/fruit-ninja/index.html"
   },
   {
     "slug": "card-legends",
