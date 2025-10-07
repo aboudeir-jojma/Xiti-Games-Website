@@ -2,6 +2,12 @@
 ---
 <link rel="stylesheet" href="/src/styles/footer-fix.css" />
 <style>
+
+  :global(footer) {
+  background: linear-gradient(90deg, #66fcd2, #00d9ff);
+  color: #000;
+}
+
   footer {
     position: relative;
     background: #f9fafc;
@@ -127,7 +133,7 @@
   }
 </style>
 
-<footer>
+<footer class="bg-transparent">
   <div class="left-section">
     <div class="logo">
       <img src="/imggames/logo.png" alt="Logo" />

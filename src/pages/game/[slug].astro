@@ -15,14 +15,63 @@ if (!game) {
 }
 
 const otherGames = games.filter((g) => g.slug !== slug);
+
+const categories = [
+  { icon: 'populaires', name: 'Populaires', highlight: true },
+  { icon: '2-joueurs', name: '2 Joueurs' },
+  { icon: '3d', name: '3D' },
+  { icon: 'action', name: 'Action' },
+  { icon: 'arcade', name: 'Arcade' },
+  { icon: 'aventure', name: 'Aventure' },
+  { icon: 'brainrot', name: 'Brainrot' },
+  { icon: 'clavier', name: 'Clavier' },
+  { icon: 'combat', name: 'Combat' },
+  { icon: 'conduite', name: 'Conduite' },
+  { icon: 'coopération', name: 'Coopération' },
+  { icon: 'course', name: 'Course' },
+  { icon: 'drift', name: 'Drift' },
+  { icon: 'drôles', name: 'Drôles' },
+  { icon: 'en-ligne', name: 'En Ligne' },
+  { icon: 'fille', name: 'Fille' },
+  { icon: 'flash', name: 'Flash' },
+  { icon: 'foot', name: 'Foot' },
+  { icon: 'fous', name: 'Fous' },
+  { icon: 'fps', name: 'FPS' },
+  { icon: 'garçon', name: 'Garçon' },
+  { icon: 'guerre', name: 'Guerre' },
+  { icon: 'habillage', name: 'Habillage' },
+  { icon: 'halloween', name: 'Halloween' },
+  { icon: 'horreur', name: 'Horreur' },
+  { icon: 'io', name: 'IO' },
+  { icon: 'multijoueur', name: 'Multijoueur' },
+  { icon: 'obby', name: 'Obby' },
+  { icon: 'pastèque', name: 'Pastèque' },
+  { icon: 'plateforme', name: 'Plateforme' },
+  { icon: 'puzzle', name: 'Puzzle' },
+  { icon: 'réflexe', name: 'Réflexe' },
+  { icon: 'simulation', name: 'Simulation' },
+  { icon: 'subway-surfers', name: 'Subway Surfers' },
+  { icon: 'tir', name: 'Tir' },
+  { icon: 'vidéo', name: 'Vidéo' },
+  { icon: 'voiture-de-course', name: 'Voiture de Course' },
+  { icon: 'voiture', name: 'Voiture' },
+  { icon: 'zombie', name: 'Zombie' },
+];
+
 export const prerender = false;
 ---
 
 <style>
+
   body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(180deg, #7af7f4 0%, #b7ffff 100%);
+    background: url('/bg-diamante.svg'), linear-gradient(90deg, #66fcd2, #00d9ff);
     min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
   }
 
   .page-container {
@@ -258,7 +307,7 @@ export const prerender = false;
 </style>
 
 <MainLayout title={game.title} description={`Play ${game.title} online for free`}>
-  <main class="page-container">
+  <main class=" page-container">
     <!-- ✅ Liste de jeux à gauche -->
     <aside class="side-column">
       {otherGames.slice(0, 16).map((g) => (
@@ -294,23 +343,12 @@ export const prerender = false;
 <section class="categories-section-full">
 
   <div class="categories-grid">
-    <div class="category-card highlight"><span class="text-6xl">🎮</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🧠</span><span>Brainrot Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">👾</span><span>Obby Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">⚽</span><span>Soccer Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">📱</span><span>Mobile Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🤝</span><span>Co-op Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🗺️</span><span>Adventure Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🕹️</span><span>Platform Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🔥</span><span>Action Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🏎️</span><span>Car Racing Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🕹️</span><span>Arcade Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">3️⃣</span><span>3D Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🎯</span><span>Skill Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">👦</span><span>Games for Boys</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🌐</span><span>.io Games</span></div>
-    <div class="category-card"><span class="text-4xl mb-2">🏆</span><span>Popular Games</span></div>
-    
+    {categories.map((category) => (
+      <div class={`category-card ${category.highlight ? 'highlight' : ''}`}>
+        <img src={`/icons/${category.icon}.png`} alt={category.name} class="w-16 h-16 mb-2" />
+        <span>{category.name}</span>
+      </div>
+    ))}
   </div>
 </section>
 

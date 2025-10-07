@@ -10,3 +10,37 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.categories-section-full {
+  width: 100%;
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.category-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.category-card.highlight {
+  background: #fef08a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: black;
+  padding: 1rem;
+}

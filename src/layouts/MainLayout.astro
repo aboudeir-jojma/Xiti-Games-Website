@@ -1,8 +1,9 @@
 ---
 import Footer from '../components/Footer.astro';
 const { title, description } = Astro.props;
+
 ---
-<html lang="en">
+<html lang="en"></html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,5 +14,6 @@ const { title, description } = Astro.props;
   <body class="bg-home text-gray-900">
     <slot />
     <Footer />
+   
   </body>
 </html>

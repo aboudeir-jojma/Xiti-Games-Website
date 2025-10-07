@@ -2,135 +2,249 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import GameCard from "../components/GameCard.astro";
 import games from "../../data/games.json";
+
+// ✅ Liste complète des catégories
+const categories = [
+  { icon: 'populaires', name: 'Populaires', highlight: true },
+  { icon: '2-joueurs', name: '2 Joueurs' },
+  { icon: '3d', name: '3D' },
+  { icon: 'action', name: 'Action' },
+  { icon: 'arcade', name: 'Arcade' },
+  { icon: 'aventure', name: 'Aventure' },
+  { icon: 'brainrot', name: 'Brainrot' },
+  { icon: 'clavier', name: 'Clavier' },
+  { icon: 'combat', name: 'Combat' },
+  { icon: 'conduite', name: 'Conduite' },
+  { icon: 'coopération', name: 'Coopération' },
+  { icon: 'course', name: 'Course' },
+  { icon: 'drift', name: 'Drift' },
+  { icon: 'drôles', name: 'Drôles' },
+  { icon: 'en-ligne', name: 'En Ligne' },
+  { icon: 'fille', name: 'Fille' },
+  { icon: 'flash', name: 'Flash' },
+  { icon: 'foot', name: 'Foot' },
+  { icon: 'fous', name: 'Fous' },
+  { icon: 'fps', name: 'FPS' },
+  { icon: 'garçon', name: 'Garçon' },
+  { icon: 'guerre', name: 'Guerre' },
+  { icon: 'habillage', name: 'Habillage' },
+  { icon: 'halloween', name: 'Halloween' },
+  { icon: 'horreur', name: 'Horreur' },
+  { icon: 'io', name: 'IO' },
+  { icon: 'multijoueur', name: 'Multijoueur' },
+  { icon: 'obby', name: 'Obby' },
+  { icon: 'pastèque', name: 'Pastèque' },
+  { icon: 'plateforme', name: 'Plateforme' },
+  { icon: 'puzzle', name: 'Puzzle' },
+  { icon: 'réflexe', name: 'Réflexe' },
+  { icon: 'simulation', name: 'Simulation' },
+  { icon: 'subway-surfers', name: 'Subway Surfers' },
+  { icon: 'tir', name: 'Tir' },
+  { icon: 'vidéo', name: 'Vidéo' },
+  { icon: 'voiture-de-course', name: 'Voiture de Course' },
+  { icon: 'voiture', name: 'Voiture' },
+  { icon: 'zombie', name: 'Zombie' },
+];
 ---
 
-  <MainLayout title="Free Online Games" description="Play the best free online games like Poki & CrazyGames!">
+<style>
 
-  <main class="container mx-auto px-6 py-10">
-      <!-- Removed the "Play Free Games" heading as per user request -->
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url('/bg-diamante.svg'), linear-gradient(90deg, #66fcd2, #00d9ff);
+    min-height: 100vh;
+     background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
 
-      <div class="grid grid-flow-dense grid-cols-6 auto-rows-[150px] gap-4">
+
+/* ✅ Grille des jeux */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    padding: 30px 10px;
+  }
+}
+
+/* ✅ Section Catégories pleine largeur */
+.categories-section-full {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  padding: 60px 100px;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.categories-section-full .categories-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* ✅ Cartes */
+.categories-section-full .category-card {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.categories-section-full .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* ✅ Carte mise en avant */
+.categories-section-full .highlight {
+  background: #ffe55c;
+  color: black;
+  font-weight: bold;
+}
+
+/* ✅ Responsive catégories */
+@media (max-width: 1400px) {
+  .categories-section-full .categories-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .categories-section-full .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-section-full .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ✅ Section About */
+.about-section {
+  background: white;
+  color: black;
+  padding: 40px;
+  border-radius: 20px;
+  margin: 60px auto;
+  max-width: 1000px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+</style>
+
+<MainLayout title="Free Online Games" description="Play the best free online games like Poki & CrazyGames!">
+  <main >
+
+    <!-- ✅ Section des jeux -->
+    <div class="games-grid">
       {games.map((game, index) => {
-        // Use fixed col and row spans of 1 to preserve order and layout consistency
-        const colSpanNum = 1;
-        const rowSpanNum = 1;
+        const colSpanClass = "col-span-1";
+        const rowSpanClass = "row-span-1";
 
-        // Map numbers to Tailwind CSS classes
-        const colSpanClass = `col-span-${colSpanNum}`;
-        const rowSpanClass = `row-span-${rowSpanNum}`;
-
-        // For the first card, pass null for game to render empty card
         if (index === 0) {
-          return <GameCard game={null} colSpanClass={colSpanClass} rowSpanClass={rowSpanClass} overrideImage={null} />;
+          return (
+            <GameCard
+              game={null}
+              colSpanClass={colSpanClass}
+              rowSpanClass={rowSpanClass}
+              overrideImage={null}
+            />
+          );
         }
-        const overrideImage = null;
-        return <GameCard game={game} colSpanClass={colSpanClass} rowSpanClass={rowSpanClass} overrideImage={overrideImage} />;
+
+        return (
+          <GameCard
+            game={game}
+            colSpanClass={colSpanClass}
+            rowSpanClass={rowSpanClass}
+            overrideImage={null}
+          />
+        );
       })}
     </div>
 
-    <!-- New categories section added as per user request -->
-    <section class="p-6 mt-10 rounded-lg">
-      <div class="grid grid-cols-6 gap-4">
-        <div class="bg-yellow-300 rounded-lg flex items-center justify-center text-center font-bold text-lg text-black p-4 cursor-pointer">
-          <span class="text-6xl">🎮</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🧠</span>
-          <span>Brainrot Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">👾</span>
-          <span>Obby Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">⚽</span>
-          <span>Soccer Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">📱</span>
-          <span>Mobile Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🤝</span>
-          <span>Co-op Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🗺️</span>
-          <span>Adventure Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🕹️</span>
-          <span>Platform Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🔥</span>
-          <span>Action Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🏎️</span>
-          <span>Car Racing Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🕹️</span>
-          <span>Arcade Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">3️⃣</span>
-          <span>3D Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🎯</span>
-          <span>Skill Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">👦</span>
-          <span>Games for Boys</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🌐</span>
-          <span>.io Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🎮</span>
-          <span>New Category</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🏆</span>
-          <span>Popular Games</span>
-        </div>
-        <div class="bg-white rounded-lg p-4 flex flex-col items-center cursor-pointer">
-          <span class="text-4xl mb-2">🖱️</span>
-          <span>Mouse Games</span>
-        </div>
+    <!-- ✅ Section Catégories -->
+    <section class="categories-section-full mt-16">
+      <div class="categories-grid">
+        {categories.map((category) => (
+          <div class={`category-card ${category.highlight ? 'highlight' : ''}`}>
+            <img
+              src={`/icons/${category.icon}.png`}
+              alt={category.name}
+              class="w-16 h-16 mb-2"
+            />
+            <span>{category.name}</span>
+          </div>
+        ))}
       </div>
     </section>
-    </main>
 
-    <section class="p-6 mt-10 rounded-lg bg-white text-black max-w-7xl mx-auto">
+    <!-- ✅ Section “About” -->
+    <section class="about-section">
       <h3 class="text-xs font-semibold uppercase mb-2">About XitiGames</h3>
       <h1 class="text-3xl font-extrabold mb-4">Free Online Games</h1>
       <p class="mb-4">
-        XitiGames has the best free online games selection and offers the most fun experience to play alone or with friends. We offer instant play to all our games without downloads, login, popups or other distractions. Our games are playable on desktop, tablet and mobile so you can enjoy them at home or on the road in XitiGames .
+        XitiGames has the best free online games selection and offers the most
+        fun experience to play alone or with friends. We offer instant play to
+        all our games without downloads, login, popups or other distractions.
+        Our games are playable on desktop, tablet and mobile so you can enjoy
+        them anywhere.
+      </p>
+
       <h4 class="font-semibold mb-2">Our game selection</h4>
       <p class="mb-4">
-        Game developers release fun <a href="#" class="text-blue-600 font-semibold">New Games</a> on our platform on a daily basis. Our most <a href="#" class="text-blue-600 font-semibold">Popular Games</a> include hits like <a href="#" class="text-blue-600 font-semibold">Subway Surfers</a>, <a href="#" class="text-blue-600 font-semibold">Temple Run 2</a>, <a href="#" class="text-blue-600 font-semibold">Stickman Hook</a> and <a href="#" class="text-blue-600 font-semibold">Rodeo Stampede</a>. These games are only playable on XitiGames. We also have online classics like <a href="#" class="text-blue-600 font-semibold">Moto X3M</a>, <a href="#" class="text-blue-600 font-semibold">Venge.io</a>, <a href="#" class="text-blue-600 font-semibold">Dino Game</a>, <a href="#" class="text-blue-600 font-semibold">Smash Karts</a>, <a href="#" class="text-blue-600 font-semibold">2048</a>, <a href="#" class="text-blue-600 font-semibold">Penalty Shooters 2</a> and <a href="#" class="text-blue-600 font-semibold">Bad Ice-Cream</a> to play for free. In total we offer more than 1000 game titles.
+        Game developers release fun
+        <a href="#" class="text-blue-600 font-semibold"> New Games </a> on our
+        platform daily. Our most
+        <a href="#" class="text-blue-600 font-semibold"> Popular Games </a>
+        include hits like
+        <a href="#" class="text-blue-600 font-semibold"> Subway Surfers </a>,
+        <a href="#" class="text-blue-600 font-semibold"> Temple Run 2 </a>,
+        <a href="#" class="text-blue-600 font-semibold"> Stickman Hook </a>, and
+        <a href="#" class="text-blue-600 font-semibold"> Rodeo Stampede </a>.
       </p>
+
       <h4 class="font-semibold mb-2">Start playing</h4>
-      <p class="mb-4">
-        Unsure what game to play? Start your game discovery on our homepage or pick a game from any of these popular categories:
-      </p>
       <ul class="list-disc list-inside space-y-1 text-blue-600 font-semibold">
         <li><a href="#">Puzzle Games</a></li>
         <li><a href="#">.io Games</a></li>
         <li><a href="#">2 Player Games</a></li>
         <li><a href="#">Car Games</a></li>
         <li><a href="#">Shooting Games</a></li>
-        <li><a href="#">Puzzle Games</a></li>
       </ul>
-      <h4 class="font-semibold mt-6 mb-2">What is XitiGames?</h4>
-      <p>
-        XitiGames is based in Amsterdam and has a team of 50 people working on our gaming platform. Our goal is to create the ultimate online playground. Free and open to all. Read more about the platform we are building on our <a href="#" class="text-blue-600 font-semibold">company</a> page. If you are a game developer looking to achieve success for your game on web, discover what we offer and get in touch via <a href="#" class="text-blue-600 font-semibold">XitiGames for Developers</a>.
-      </p>
     </section>
   </main>
 </MainLayout>

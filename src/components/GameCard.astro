@@ -4,11 +4,11 @@ const { game, colSpan = 1, rowSpan = 1 } = Astro.props;
 ---
 
 {game ? (
-  <a href={`/game/${game.slug}`} class={`hover:scale-105 transition shadow-lg rounded-lg overflow-hidden block w-full h-full col-span-${colSpan} row-span-${rowSpan}`}>
+  <a href={`/game/${game.slug}`} class={`hover:scale-105 transition shadow-lg rounded-lg overflow-hidden block w-full h-full aspect-square col-span-${colSpan} row-span-${rowSpan}`}>
     <img src={game.thumb} alt={game.title} class="rounded-lg w-full h-full object-cover" />
   </a>
 ) : (
-  <div class={`rounded-lg w-full h-full bg-white flex flex-col items-center justify-center p-4 gap-4 col-span-${colSpan} row-span-${rowSpan}`}>
+  <div class={`rounded-lg w-full h-full bg-white flex flex-col items-center justify-center p-4 gap-4 aspect-square col-span-${colSpan} row-span-${rowSpan}`}>
     <img src="/imggames/logo.png" alt="Logo" class="w-20 h-20 object-contain" />
     <div class="flex gap-6">
       <button aria-label="User" class="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition">
