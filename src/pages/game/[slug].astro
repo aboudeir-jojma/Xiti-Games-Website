@@ -50,7 +50,7 @@ const categories = [
   { icon: 'puzzle', name: 'Puzzle' },
   { icon: 'réflexe', name: 'Réflexe' },
   { icon: 'simulation', name: 'Simulation' },
-  { icon: 'subway-surfers', name: 'Subway Surfers' },
+
   { icon: 'tir', name: 'Tir' },
   { icon: 'vidéo', name: 'Vidéo' },
   { icon: 'voiture-de-course', name: 'Voiture de Course' },
@@ -62,16 +62,14 @@ export const prerender = false;
 ---
 
 <style>
-
   body {
     font-family: 'Poppins', sans-serif;
     background: url('/bg-diamante.svg'), linear-gradient(90deg, #66fcd2, #00d9ff);
     min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   .page-container {
@@ -80,7 +78,7 @@ export const prerender = false;
     align-items: flex-start;
     gap: 30px;
     max-width: 1600px;
-    margin: 60px auto;
+    
     padding: 20px;
   }
 
@@ -125,8 +123,126 @@ export const prerender = false;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   }
 
-  .related-games {
-    margin-top: 60px;
+  /* ✅ Barre d’infos sous le jeu */
+  .game-info-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex-wrap: wrap;
+  }
+
+  .game-info-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .game-info-left img {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .game-info-details h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .game-info-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .game-info-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .like-btn, .dislike-btn, .fullscreen-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .like-btn:hover { background: #c8f7c5; }
+  .dislike-btn:hover { background: #ffcaca; }
+  .fullscreen-btn:hover { background: #d0f0ff; }
+
+  .like-btn img, .dislike-btn img, .fullscreen-btn img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ✅ Description pleine largeur */
+  .description-section-full {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95vw;
+    max-width: 1800px;
+    margin-top: -80px;
+    padding: 40px 100px 60px;
+    background: transparent;
+    color: #0a1f44;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  /* ✅ Catégories pleine largeur */
+  .categories-section-full {
+    position: relative;
+    left: 50%;
+    margin-top: -30px;
+    transform: translateX(-50%);
+    width: 95vw;
+    padding: 60px 100px;
+    background: transparent;
+  }
+
+  .categories-section-full .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .categories-section-full .category-card {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+  }
+
+  .categories-section-full .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+
+  .categories-section-full .highlight {
+    background: #ffe55c;
+    font-weight: bold;
+  }
+
+   .related-games {
+    margin-top: 10px;
   }
 
   .related-games h2 {
@@ -161,213 +277,129 @@ export const prerender = false;
     object-fit: cover;
   }
 
-  /* ✅ Section Catégories */
-  .categories-section {
-    background: transparent;
-    padding: 30px 0;
-    margin-top: 60px;
-  }
-
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-  }
-
-  .category-card {
-    background: white;
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  }
-
-  .category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-  }
-
-  .category-card span {
-    font-weight: 500;
-    color: #0a1f44;
-  }
-
-  @media (max-width: 1024px) {
-    .page-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .side-column {
-      display: none;
-    }
-  }
-
- /* ✅ Rendre la section Catégories pleine largeur (comme le fond principal) */
-/* ✅ Section Catégories pleine largeur */
-.categories-section-full {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95vw; /* Prend presque toute la largeur de la fenêtre */
-
-  padding: 60px 100px;
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
-}
-
-/* ✅ Grille 8 par 8 */
-.categories-section-full .categories-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr); /* 8 colonnes fixes */
-  gap: 20px;
-  max-width: 1800px; /* optionnel pour centrer */
-  margin: 0 auto;
-}
-
-/* ✅ Cartes */
-.categories-section-full .category-card {
-  background: white;
-  border-radius: 12px;
-  padding: 14px;
-  width: 100%;
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-}
-
-.categories-section-full .category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-/* ✅ Carte mise en avant */
-.categories-section-full .highlight {
-  background: #ffe55c;
-  color: black;
-  font-weight: bold;
-}
-
-/* ✅ Responsive pour petits écrans */
-@media (max-width: 1400px) {
-  .categories-section-full .categories-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .categories-section-full .categories-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .categories-section-full .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-/* ✅ Description pleine largeur comme la section catégories */
-.description-section-full {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95vw; /* même largeur que la section précédente */
-  max-width: 1800px;
-  padding: 40px 100px 60px;
-  margin-top: 0;
-  background: transparent;
-  color: #0a1f44;
-  line-height: 1.8;
-  font-size: 1rem;
-}
-
-.description-section-full h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #0a1f44;
-}
-
-.description-section-full p {
-  margin-bottom: 16px;
-  color: #333;
-}
-
-
 </style>
 
 <MainLayout title={game.title} description={`Play ${game.title} online for free`}>
-  <main class=" page-container">
-    <!-- ✅ Liste de jeux à gauche -->
+  <main class="page-container">
     <aside class="side-column">
-      {otherGames.slice(0, 16).map((g) => (
+      {otherGames.slice(0, 18).map((g) => (
         <a href={`/game/${g.slug}`} title={g.title}>
           <img src={g.thumb} alt={g.title} loading="lazy" />
         </a>
       ))}
     </aside>
 
-    <!-- ✅ Zone principale -->
     <section class="main-game">
+      <!-- ✅ Iframe du jeu -->
       <iframe
         src={game.iframe}
         class="game-iframe"
         allowfullscreen
         loading="lazy"
         title={game.title}
+        id="gameFrame"
       ></iframe>
 
-      <!-- ✅ Section Other Games -->
+      <!-- ✅ Barre d’infos -->
+      <div class="game-info-bar">
+        <div class="game-info-left">
+          <img src={game.thumb} alt={game.title} />
+          <div class="game-info-details">
+            <h3>{game.title}</h3>
+            <p>by {game.author || 'Unknown Developer'}</p>
+          </div>
+        </div>
+
+        <div class="game-info-actions">
+      <!-- 👍 Like -->
+  <button class="like-btn" id="likeBtn" title="Like this game">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 9V5a3 3 0 0 0-6 0v4H4v10h16V9z" />
+      <path d="M14 9l6 0" opacity="0" />
+    </svg>
+    <span id="likeCount">16.3K</span>
+  </button>
+
+  <!-- 👎 Dislike -->
+  <button class="dislike-btn" id="dislikeBtn" title="Dislike this game">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 15v4a3 3 0 0 0 6 0v-4h4V5H4v10z" />
+    </svg>
+    <span id="dislikeCount">2.4K</span>
+  </button>
+
+  <!-- ⛶ Fullscreen -->
+  <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen mode">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 3 21 3 21 9" />
+      <polyline points="9 21 3 21 3 15" />
+      <line x1="21" y1="3" x2="14" y2="10" />
+      <line x1="3" y1="21" x2="10" y2="14" />
+    </svg>
+    <span>Fullscreen</span>
+  </button>
+        </div>
+      </div>
+
+       <!-- ✅ Section Other Games -->
       <section class="related-games">
 
         <div class="games-grid">
-          {otherGames.slice(0, 10).map((g) => (
+          {otherGames.slice(0, 15).map((g) => (
             <a href={`/game/${g.slug}`} class="game-card">
               <img src={g.thumb} alt={g.title} loading="lazy" />
             </a>
           ))}
         </div>
       </section>
+      <!-- ✅ Catégories -->
+      <section class="categories-section-full">
+        <div class="categories-grid">
+          {categories.map((category) => (
+            <div class={`category-card ${category.highlight ? 'highlight' : ''}`}>
+              <img src={`/icons/${category.icon}.png`} alt={category.name} class="w-16 h-16 mb-2" />
+              <span>{category.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <!-- ✅ Nouvelle section Catégories (large full width) -->
-<section class="categories-section-full">
-
-  <div class="categories-grid">
-    {categories.map((category) => (
-      <div class={`category-card ${category.highlight ? 'highlight' : ''}`}>
-        <img src={`/icons/${category.icon}.png`} alt={category.name} class="w-16 h-16 mb-2" />
-        <span>{category.name}</span>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-
-
-<section class="description-section-full">
-  <GameDescription slug={slug} />
-</section>
-
+      <!-- ✅ Description -->
+      <section class="description-section-full">
+        <GameDescription slug={slug} />
+      </section>
     </section>
 
-    <!-- ✅ Liste de jeux à droite -->
     <aside class="side-column">
-      {otherGames.slice(12, 28).map((g)=> (
+      {otherGames.slice(12, 30).map((g) => (
         <a href={`/game/${g.slug}`} title={g.title}>
           <img src={g.thumb} alt={g.title} loading="lazy" />
         </a>
       ))}
     </aside>
   </main>
+
+  <script>
+    const fsBtn = document.getElementById('fullscreenBtn');
+    const iframe = document.getElementById('gameFrame');
+    fsBtn?.addEventListener('click', () => {
+      if (iframe.requestFullscreen) iframe.requestFullscreen();
+      else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+      else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
+    });
+
+    let likes = 16300;
+    let dislikes = 2400;
+    const likeCount = document.getElementById('likeCount');
+    const dislikeCount = document.getElementById('dislikeCount');
+
+    document.getElementById('likeBtn')?.addEventListener('click', () => {
+      likes++;
+      likeCount.textContent = (likes / 1000).toFixed(1) + 'K';
+    });
+    document.getElementById('dislikeBtn')?.addEventListener('click', () => {
+      dislikes++;
+      dislikeCount.textContent = (dislikes / 1000).toFixed(1) + 'K';
+    });
+  </script>
 </MainLayout>

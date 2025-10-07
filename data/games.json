@@ -12,7 +12,7 @@
     "slug": "uno",
     "title": "UNO",
     "name": "UNO",
-    "thumb": "/imggames/Uno/uno.jpg",
+    "thumb": "/imggames/uno/uno.jpg",
     "tag": "New",
     "category": ["Card", "Multiplayer"],
     "iframe": "https://games-gules-nu.vercel.app/Uno/index.html"
