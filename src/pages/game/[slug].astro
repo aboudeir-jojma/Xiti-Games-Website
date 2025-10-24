@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const game = games.find((g) => g.slug === slug);
+const game = games.find((g) => g.slug === slug);;
 
 if (!game) {
   throw new Error('Game not found');
@@ -60,8 +60,6 @@ const categories = [
   { icon: 'voiture', name: 'Voiture' },
   { icon: 'zombie', name: 'Zombie' },
 ];
-
-export const prerender = false;
 ---
 
 <style>
