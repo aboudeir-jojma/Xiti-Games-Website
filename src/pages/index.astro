@@ -3,6 +3,150 @@ import MainLayout from "../layouts/MainLayout.astro";
 import GameCard from "../components/GameCard.astro";
 import games from "../../data/games.json";
 
+// Translations for the About section
+const translations = {
+  en: {
+    aboutTitle: "About XitiGames",
+    aboutSubtitle: "Free Online Games",
+    aboutText: "XitiGames has the best free online games selection and offers the most fun experience to play alone or with friends. We offer instant play to all our games without downloads, login, popups or other distractions. Our games are playable on desktop, tablet and mobile so you can enjoy them anywhere.",
+    gameSelectionTitle: "Our game selection",
+    gameSelectionText: "Game developers release fun <a href='#' class='text-blue-600 font-semibold'> New Games </a> on our platform daily. Our most <a href='#' class='text-blue-600 font-semibold'> Popular Games </a> include hits like <a href='#' class='text-blue-600 font-semibold'> Subway Surfers </a>, <a href='#' class='text-blue-600 font-semibold'> Temple Run 2 </a>, <a href='#' class='text-blue-600 font-semibold'> Stickman Hook </a>, and <a href='#' class='text-blue-600 font-semibold'> Rodeo Stampede </a>.",
+    startPlayingTitle: "Start playing",
+    startPlayingList: [
+      "<a href='#'>Puzzle Games</a>",
+      "<a href='#'>.io Games</a>",
+      "<a href='#'>2 Player Games</a>",
+      "<a href='#'>Car Games</a>",
+      "<a href='#'>Shooting Games</a>"
+    ],
+    whatIsTitle: "What is XitiGames?",
+    whatIsText: "XitiGames is based in Amsterdam and has a team of 50 people working on our gaming platform. Our goal is to create the ultimate online playground. Free and open to all. Read more about the platform we are building on our company page. If you are a game developer looking to achieve success for your game on web, discover what we offer and get in touch via Poki for Developers.",
+    gameTags: [
+      "ADVENTURE GAMES", "BLOCK GAMES", "PLATFORM GAMES", "ZOMBIE GAMES", "MULTIPLAYER GAMES", "SHOOTING GAMES", "CHRISTMAS GAMES", "3D GAMES", "FUNNY GAMES", "MINECRAFT GAMES", "PARKOUR GAMES", ".IO GAMES", "POPULAR GAMES", "VIDEO GAMES", "WINTER GAMES", "OBBY GAMES", "MOBILE GAMES", "DIFFICULT GAMES", "PVP GAMES", "PVE GAMES"
+    ]
+  },
+  fr: {
+    aboutTitle: "À propos de XitiGames",
+    aboutSubtitle: "Jeux en ligne gratuits",
+    aboutText: "XitiGames propose la meilleure sélection de jeux en ligne gratuits et offre l'expérience la plus amusante pour jouer seul ou avec des amis. Nous proposons un jeu instantané pour tous nos jeux sans téléchargements, connexion, pop-ups ou autres distractions. Nos jeux sont jouables sur ordinateur, tablette et mobile afin que vous puissiez en profiter partout.",
+    gameSelectionTitle: "Notre sélection de jeux",
+    gameSelectionText: "Les développeurs de jeux publient des <a href='#' class='text-blue-600 font-semibold'> Nouveaux Jeux </a> amusants sur notre plateforme quotidiennement. Nos <a href='#' class='text-blue-600 font-semibold'> Jeux Populaires </a> les plus populaires incluent des succès comme <a href='#' class='text-blue-600 font-semibold'> Subway Surfers </a>, <a href='#' class='text-blue-600 font-semibold'> Temple Run 2 </a>, <a href='#' class='text-blue-600 font-semibold'> Stickman Hook </a>, et <a href='#' class='text-blue-600 font-semibold'> Rodeo Stampede </a>.",
+    startPlayingTitle: "Commencer à jouer",
+    startPlayingList: [
+      "<a href='#'>Jeux de Puzzle</a>",
+      "<a href='#'>Jeux .io</a>",
+      "<a href='#'>Jeux à 2 Joueurs</a>",
+      "<a href='#'>Jeux de Voiture</a>",
+      "<a href='#'>Jeux de Tir</a>"
+    ],
+    whatIsTitle: "Qu'est-ce que XitiGames ?",
+    whatIsText: "XitiGames est basé à Amsterdam et compte une équipe de 50 personnes travaillant sur notre plateforme de jeu. Notre objectif est de créer le terrain de jeu en ligne ultime. Gratuit et ouvert à tous. En savoir plus sur la plateforme que nous construisons sur notre page entreprise. Si vous êtes un développeur de jeux cherchant à réussir votre jeu sur le web, découvrez ce que nous offrons et contactez-nous via Poki for Developers.",
+    gameTags: [
+      "JEUX D'AVENTURE", "JEUX DE BLOCS", "JEUX DE PLATEFORME", "JEUX DE ZOMBIES", "JEUX MULTIJOUEURS", "JEUX DE TIR", "JEUX DE NOËL", "JEUX 3D", "JEUX DRÔLES", "JEUX MINECRAFT", "JEUX DE PARKOUR", "JEUX .IO", "JEUX POPULAIRES", "JEUX VIDÉO", "JEUX D'HIVER", "JEUX OBBY", "JEUX MOBILES", "JEUX DIFFICILES", "JEUX PVP", "JEUX PVE"
+    ]
+  },
+  es: {
+    aboutTitle: "Acerca de XitiGames",
+    aboutSubtitle: "Juegos en línea gratuitos",
+    aboutText: "XitiGames tiene la mejor selección de juegos en línea gratuitos y ofrece la experiencia más divertida para jugar solo o con amigos. Ofrecemos juego instantáneo para todos nuestros juegos sin descargas, inicio de sesión, pop-ups u otras distracciones. Nuestros juegos son jugables en escritorio, tableta y móvil para que puedas disfrutarlos en cualquier lugar.",
+    gameSelectionTitle: "Nuestra selección de juegos",
+    gameSelectionText: "Los desarrolladores de juegos lanzan <a href='#' class='text-blue-600 font-semibold'> Juegos Nuevos </a> divertidos en nuestra plataforma diariamente. Nuestros <a href='#' class='text-blue-600 font-semibold'> Juegos Populares </a> más populares incluyen éxitos como <a href='#' class='text-blue-600 font-semibold'> Subway Surfers </a>, <a href='#' class='text-blue-600 font-semibold'> Temple Run 2 </a>, <a href='#' class='text-blue-600 font-semibold'> Stickman Hook </a>, y <a href='#' class='text-blue-600 font-semibold'> Rodeo Stampede </a>.",
+    startPlayingTitle: "Empieza a jugar",
+    startPlayingList: [
+      "<a href='#'>Juegos de Puzzle</a>",
+      "<a href='#'>Juegos .io</a>",
+      "<a href='#'>Juegos de 2 Jugadores</a>",
+      "<a href='#'>Juegos de Coches</a>",
+      "<a href='#'>Juegos de Disparos</a>"
+    ],
+    whatIsTitle: "¿Qué es XitiGames?",
+    whatIsText: "XitiGames está basado en Ámsterdam y tiene un equipo de 50 personas trabajando en nuestra plataforma de juegos. Nuestro objetivo es crear el parque de juegos en línea definitivo. Gratuito y abierto a todos. Lee más sobre la plataforma que estamos construyendo en nuestra página de empresa. Si eres un desarrollador de juegos buscando lograr el éxito para tu juego en la web, descubre lo que ofrecemos y ponte en contacto a través de Poki for Developers.",
+    gameTags: [
+      "JUEGOS DE AVENTURA", "JUEGOS DE BLOQUES", "JUEGOS DE PLATAFORMA", "JUEGOS DE ZOMBIES", "JUEGOS MULTIJUGADOR", "JUEGOS DE DISPAROS", "JUEGOS DE NAVIDAD", "JUEGOS 3D", "JUEGOS DIVERTIDOS", "JUEGOS MINECRAFT", "JUEGOS DE PARKOUR", "JUEGOS .IO", "JUEGOS POPULARES", "JUEGOS DE VIDEO", "JUEGOS DE INVIERNO", "JUEGOS OBBY", "JUEGOS MÓVILES", "JUEGOS DIFÍCILES", "JUEGOS PVP", "JUEGOS PVE"
+    ]
+  },
+  de: {
+    aboutTitle: "Über XitiGames",
+    aboutSubtitle: "Kostenlose Online-Spiele",
+    aboutText: "XitiGames hat die beste Auswahl an kostenlosen Online-Spielen und bietet das spaßigste Erlebnis, um allein oder mit Freunden zu spielen. Wir bieten Instant-Play für alle unsere Spiele ohne Downloads, Anmeldung, Pop-ups oder andere Ablenkungen. Unsere Spiele sind auf Desktop, Tablet und Mobil spielbar, damit du sie überall genießen kannst.",
+    gameSelectionTitle: "Unsere Spielauswahl",
+    gameSelectionText: "Spieleentwickler veröffentlichen täglich spaßige <a href='#' class='text-blue-600 font-semibold'> Neue Spiele </a> auf unserer Plattform. Unsere beliebtesten <a href='#' class='text-blue-600 font-semibold'> Beliebte Spiele </a> umfassen Hits wie <a href='#' class='text-blue-600 font-semibold'> Subway Surfers </a>, <a href='#' class='text-blue-600 font-semibold'> Temple Run 2 </a>, <a href='#' class='text-blue-600 font-semibold'> Stickman Hook </a> und <a href='#' class='text-blue-600 font-semibold'> Rodeo Stampede </a>.",
+    startPlayingTitle: "Spielen beginnen",
+    startPlayingList: [
+      "<a href='#'>Puzzle-Spiele</a>",
+      "<a href='#'>.io Spiele</a>",
+      "<a href='#'>2-Spieler-Spiele</a>",
+      "<a href='#'>Auto-Spiele</a>",
+      "<a href='#'>Schießspiele</a>"
+    ],
+    whatIsTitle: "Was ist XitiGames?",
+    whatIsText: "XitiGames ist in Amsterdam ansässig und hat ein Team von 50 Personen, die an unserer Gaming-Plattform arbeiten. Unser Ziel ist es, den ultimativen Online-Spielplatz zu schaffen. Kostenlos und offen für alle. Erfahre mehr über die Plattform, die wir auf unserer Unternehmensseite aufbauen. Wenn du ein Spieleentwickler bist, der Erfolg für dein Spiel im Web anstrebt, entdecke, was wir anbieten, und nimm Kontakt auf über Poki for Developers.",
+    gameTags: [
+      "ABENTEUERSPIELE", "BLOCKSPIELE", "PLATTFORMSPIELE", "ZOMBIESPIELE", "MULTIPLAYER-SPIELE", "SCHIESSSPIELE", "WEIHNACHTSSPIELE", "3D-SPIELE", "LUSTIGE SPIELE", "MINECRAFT-SPIELE", "PARKOUR-SPIELE", ".IO SPIELE", "BELIEBTE SPIELE", "VIDEOSPIELE", "WINTERSPIELE", "OBBY-SPIELE", "MOBILE SPIELE", "SCHWIERIGE SPIELE", "PVP-SPIELE", "PVE-SPIELE"
+    ]
+  },
+  it: {
+    aboutTitle: "Informazioni su XitiGames",
+    aboutSubtitle: "Giochi online gratuiti",
+    aboutText: "XitiGames ha la migliore selezione di giochi online gratuiti e offre l'esperienza più divertente per giocare da soli o con gli amici. Offriamo gioco istantaneo per tutti i nostri giochi senza download, login, pop-up o altre distrazioni. I nostri giochi sono giocabili su desktop, tablet e mobile per poterli godere ovunque.",
+    gameSelectionTitle: "La nostra selezione di giochi",
+    gameSelectionText: "Gli sviluppatori di giochi rilasciano <a href='#' class='text-blue-600 font-semibold'> Nuovi Giochi </a> divertenti sulla nostra piattaforma quotidianamente. I nostri <a href='#' class='text-blue-600 font-semibold'> Giochi Popolari </a> più popolari includono successi come <a href='#' class='text-blue-600 font-semibold'> Subway Surfers </a>, <a href='#' class='text-blue-600 font-semibold'> Temple Run 2 </a>, <a href='#' class='text-blue-600 font-semibold'> Stickman Hook </a> e <a href='#' class='text-blue-600 font-semibold'> Rodeo Stampede </a>.",
+    startPlayingTitle: "Inizia a giocare",
+    startPlayingList: [
+      "<a href='#'>Giochi di Puzzle</a>",
+      "<a href='#'>Giochi .io</a>",
+      "<a href='#'>Giochi a 2 Giocatori</a>",
+      "<a href='#'>Giochi di Auto</a>",
+      "<a href='#'>Giochi di Sparatutto</a>"
+    ],
+    whatIsTitle: "Cos'è XitiGames?",
+    whatIsText: "XitiGames è basato ad Amsterdam e ha un team di 50 persone che lavorano sulla nostra piattaforma di gioco. Il nostro obiettivo è creare il parco giochi online definitivo. Gratuito e aperto a tutti. Leggi di più sulla piattaforma che stiamo costruendo nella nostra pagina aziendale. Se sei uno sviluppatore di giochi che cerca di raggiungere il successo per il tuo gioco sul web, scopri cosa offriamo e contattaci tramite Poki for Developers.",
+    gameTags: [
+      "GIOCHI DI AVVENTURA", "GIOCHI DI BLOCCHI", "GIOCHI DI PIATTAFORMA", "GIOCHI DI ZOMBIE", "GIOCHI MULTIPLAYER", "GIOCHI DI SPARATUTTO", "GIOCHI DI NATALE", "GIOCHI 3D", "GIOCHI DIVERTENTI", "GIOCHI MINECRAFT", "GIOCHI DI PARKOUR", "GIOCHI .IO", "GIOCHI POPOLARI", "GIOCHI VIDEO", "GIOCHI INVERNALI", "GIOCHI OBBY", "GIOCHI MOBILI", "GIOCHI DIFFICILI", "GIOCHI PVP", "GIOCHI PVE"
+    ]
+  },
+  jp: {
+    aboutTitle: "XitiGamesについて",
+    aboutSubtitle: "無料オンラインゲーム",
+    aboutText: "XitiGamesは最高の無料オンラインゲームの選択肢を提供し、一人または友人とのプレイで最も楽しい体験を提供します。私たちはダウンロード、ログイン、ポップアップ、その他の邪魔なしで全てのゲームを即時プレイできます。私たちのゲームはデスクトップ、タブレット、モバイルでプレイ可能なので、どこでも楽しめます。",
+    gameSelectionTitle: "私たちのゲーム選択",
+    gameSelectionText: "ゲーム開発者は毎日私たちのプラットフォームで楽しい<a href='#' class='text-blue-600 font-semibold'> 新しいゲーム </a>をリリースします。私たちの最も<a href='#' class='text-blue-600 font-semibold'> 人気のゲーム </a>には<a href='#' class='text-blue-600 font-semibold'> Subway Surfers </a>、<a href='#' class='text-blue-600 font-semibold'> Temple Run 2 </a>、<a href='#' class='text-blue-600 font-semibold'> Stickman Hook </a>、<a href='#' class='text-blue-600 font-semibold'> Rodeo Stampede </a>などのヒットが含まれます。",
+    startPlayingTitle: "プレイを開始",
+    startPlayingList: [
+      "<a href='#'>パズルゲーム</a>",
+      "<a href='#'>.ioゲーム</a>",
+      "<a href='#'>2人用ゲーム</a>",
+      "<a href='#'>カーゲーム</a>",
+      "<a href='#'>シューティングゲーム</a>"
+    ],
+    whatIsTitle: "XitiGamesとは？",
+    whatIsText: "XitiGamesはアムステルダムに拠点を置き、50人のチームが私たちのゲームプラットフォームに取り組んでいます。私たちの目標は究極のオンライン遊園地を作成することです。無料で全ての人に開放されています。私たちが構築しているプラットフォームについて詳しくは企業ページをご覧ください。ウェブ上であなたのゲームの成功を目指すゲーム開発者の方は、私たちが提供するものを発見し、Poki for Developers経由でお問い合わせください。",
+    gameTags: [
+      "アドベンチャーゲーム", "ブロックゲーム", "プラットフォームゲーム", "ゾンビゲーム", "マルチプレイヤーゲーム", "シューティングゲーム", "クリスマスゲーム", "3Dゲーム", "楽しいゲーム", "マインクラフトゲーム", "パルクールゲーム", ".IOゲーム", "人気ゲーム", "ビデオゲーム", "冬ゲーム", "オビーゲーム", "モバイルゲーム", "難しいゲーム", "PVPゲーム", "PVEゲーム"
+    ]
+  },
+  pt: {
+    aboutTitle: "Sobre XitiGames",
+    aboutSubtitle: "Jogos online gratuitos",
+    aboutText: "XitiGames tem a melhor seleção de jogos online gratuitos e oferece a experiência mais divertida para jogar sozinho ou com amigos. Oferecemos jogo instantâneo para todos os nossos jogos sem downloads, login, pop-ups ou outras distrações. Nossos jogos são jogáveis em desktop, tablet e mobile para que você possa aproveitá-los em qualquer lugar.",
+    gameSelectionTitle: "Nossa seleção de jogos",
+    gameSelectionText: "Desenvolvedores de jogos lançam <a href='#' class='text-blue-600 font-semibold'> Novos Jogos </a> divertidos em nossa plataforma diariamente. Nossos <a href='#' class='text-blue-600 font-semibold'> Jogos Populares </a> mais populares incluem sucessos como <a href='#' class='text-blue-600 font-semibold'> Subway Surfers </a>, <a href='#' class='text-blue-600 font-semibold'> Temple Run 2 </a>, <a href='#' class='text-blue-600 font-semibold'> Stickman Hook </a> e <a href='#' class='text-blue-600 font-semibold'> Rodeo Stampede </a>.",
+    startPlayingTitle: "Comece a jogar",
+    startPlayingList: [
+      "<a href='#'>Jogos de Quebra-Cabeça</a>",
+      "<a href='#'>Jogos .io</a>",
+      "<a href='#'>Jogos de 2 Jogadores</a>",
+      "<a href='#'>Jogos de Carro</a>",
+      "<a href='#'>Jogos de Tiro</a>"
+    ],
+    whatIsTitle: "O que é XitiGames?",
+    whatIsText: "XitiGames está baseado em Amsterdã e tem uma equipe de 50 pessoas trabalhando em nossa plataforma de jogos. Nosso objetivo é criar o parque de jogos online definitivo. Gratuito e aberto a todos. Leia mais sobre a plataforma que estamos construindo em nossa página da empresa. Se você é um desenvolvedor de jogos procurando alcançar sucesso para seu jogo na web, descubra o que oferecemos e entre em contato via Poki for Developers.",
+    gameTags: [
+      "JOGOS DE AVENTURA", "JOGOS DE BLOCOS", "JOGOS DE PLATAFORMA", "JOGOS DE ZUMBIS", "JOGOS MULTIJOGADOR", "JOGOS DE TIRO", "JOGOS DE NATAL", "JOGOS 3D", "JOGOS DIVERTIDOS", "JOGOS MINECRAFT", "JOGOS DE PARKOUR", "JOGOS .IO", "JOGOS POPULARES", "JOGOS DE VÍDEO", "JOGOS DE INVERNO", "JOGOS OBBY", "JOGOS MÓVEIS", "JOGOS DIFÍCEIS", "JOGOS PVP", "JOGOS PVE"
+    ]
+  }
+};
+
 // ✅ Liste complète des catégories
 const categories = [
   { icon: 'populaires', name: 'Populaires', highlight: true },
@@ -251,9 +395,21 @@ const categories = [
 
     <!-- ✅ Section “About” -->
     <section class="about-section">
-      <h3 class="text-xs font-semibold uppercase mb-2">About XitiGames</h3>
-      <h1 class="text-3xl font-extrabold mb-4">Free Online Games</h1>
-      <p class="mb-4">
+      <div class="language-selector mb-4">
+        <label for="lang-select" class="font-semibold">Select Language:</label>
+        <select id="lang-select" class="ml-2 p-1 border rounded">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="jp">日本語</option>
+          <option value="pt">Português</option>
+        </select>
+      </div>
+      <h3 id="about-title" class="text-xs font-semibold uppercase mb-2">About XitiGames</h3>
+      <h1 id="about-subtitle" class="text-3xl font-extrabold mb-4">Free Online Games</h1>
+      <p id="about-text" class="mb-4">
         XitiGames has the best free online games selection and offers the most
         fun experience to play alone or with friends. We offer instant play to
         all our games without downloads, login, popups or other distractions.
@@ -261,8 +417,8 @@ const categories = [
         them anywhere.
       </p>
 
-      <h4 class="font-semibold mb-2">Our game selection</h4>
-      <p class="mb-4">
+      <h4 id="game-selection-title" class="font-semibold mb-2">Our game selection</h4>
+      <p id="game-selection-text" class="mb-4">
         Game developers release fun
         <a href="#" class="text-blue-600 font-semibold"> New Games </a> on our
         platform daily. Our most
@@ -274,46 +430,46 @@ const categories = [
         <a href="#" class="text-blue-600 font-semibold"> Rodeo Stampede </a>.
       </p>
 
-      <h4 class="font-semibold mb-2">Start playing</h4>
-      <ul class="list-disc list-inside space-y-1 text-blue-600 font-semibold">
+      <h4 id="start-playing-title" class="font-semibold mb-2">Start playing</h4>
+      <ul id="start-playing-list" class="list-disc list-inside space-y-1 text-blue-600 font-semibold">
         <li><a href="#">Puzzle Games</a></li>
         <li><a href="#">.io Games</a></li>
         <li><a href="#">2 Player Games</a></li>
         <li><a href="#">Car Games</a></li>
         <li><a href="#">Shooting Games</a></li>
       </ul>
-     
-      <br/>
-<h4 class="font-semibold mb-2">What is XitiGames?</h4>
 
-       <p class="mb-4">
+      <br/>
+      <h4 id="what-is-title" class="font-semibold mb-2">What is XitiGames?</h4>
+
+      <p id="what-is-text" class="mb-4">
         XitiGames  is based in Amsterdam and has a team of 50 people working on our gaming platform. Our goal is to create the ultimate online playground. Free and open to all. Read more about the platform we are building on our company page. If you are a game developer looking to achieve success for your game on web, discover what we offer and get in touch via Poki for Developers.
       </p>
 
-     <section class="w-full px-6 py-6">
-  <div class="flex flex-wrap gap-3 justify-start">
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">ADVENTURE GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">BLOCK GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PLATFORM GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">ZOMBIE GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">MULTIPLAYER GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">SHOOTING GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">CHRISTMAS GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">3D GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">FUNNY GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">MINECRAFT GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PARKOUR GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">.IO GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">POPULAR GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">VIDEO GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">WINTER GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">OBBY GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">MOBILE GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">DIFFICULT GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PVP GAMES</a>
-    <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PVE GAMES</a>
-  </div>
-</section>
+      <section id="game-tags" class="w-full px-6 py-6">
+        <div class="flex flex-wrap gap-3 justify-start">
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">ADVENTURE GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">BLOCK GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PLATFORM GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">ZOMBIE GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">MULTIPLAYER GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">SHOOTING GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">CHRISTMAS GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">3D GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">FUNNY GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">MINECRAFT GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PARKOUR GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">.IO GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">POPULAR GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">VIDEO GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">WINTER GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">OBBY GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">MOBILE GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">DIFFICULT GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PVP GAMES</a>
+          <a href="#" class="border-2 border-blue-500 text-blue-500 px-4 py-1 rounded-full font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all">PVE GAMES</a>
+        </div>
+      </section>
     </section>
   </main>
 </MainLayout>
